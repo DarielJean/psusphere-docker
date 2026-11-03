@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+
+        <h4 class="page-title">Student</h4>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <div class="card-title">
+                            Delete Student
+                        </div>
+
+                        <div class="card-category">
+                            Confirm Deletion
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        <p>
+                            Are you sure you want to delete
+                            <strong>
+                                {{ object.lastname }}, {{ object.firstname }}
+                            </strong>?
+                        </p>
+
+                        <form method="POST">
+
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-danger btn-rounded">
+                                Yes, Delete
+                            </button>
+
+                            <a href="{% url 'student-list' %}"
+                               class="btn btn-secondary btn-rounded">
+                                Cancel
+                            </a>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
